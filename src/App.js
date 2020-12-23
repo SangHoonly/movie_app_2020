@@ -1,13 +1,21 @@
 import React from 'react';
-import Potato from "./Potato";
+import PropTypes from "prop-types";
 
-function App() {
-  return (
-    <div>
-      <h1>hello</h1>
-      <Potato />
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: []
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isLoading: false, book: true });
+    }, 6000);
+  }
+  render() {
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading..." : "We are ready"}</div>
+  }
 }
 
 export default App;
